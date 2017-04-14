@@ -34,8 +34,11 @@ module.exports.routes = {
   '/': {view: 'homepage'},
   'post /register': 'UserController.register',
   'post /login': 'UserController.login',
-  'post /product/create': 'ProductController.create'
-
+  'post /product/create': 'ProductController.create',
+  'get /product/:id': 'ProductController.show',
+  'get /products': 'ProductController.index',
+  'post /product/:id': 'ProductController.update',
+  'delete /product/:id': 'ProductController.delete'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

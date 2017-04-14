@@ -13,9 +13,11 @@ module.exports = {
    * `ProductController.index()`
    */
   index: function (req, res) {
-    return res.json({
-      todo: 'index() is not implemented yet!'
-    });
+    Product.find()
+    .then(products => {
+      return res.json(products)
+    })
+    .catch(err => res.negotiate(err))
   },
 
 
@@ -23,9 +25,12 @@ module.exports = {
    * `ProductController.show()`
    */
   show: function (req, res) {
-    return res.json({
-      todo: 'show() is not implemented yet!'
-    });
+    const {id} = req.params
+    Product.findOne(id)
+    .then(product => {
+      return res.json(product)
+    })
+    .catch(err => res.negotiate(err))
   },
 
 
@@ -46,9 +51,14 @@ module.exports = {
    * `ProductController.update()`
    */
   update: function (req, res) {
-    return res.json({
-      todo: 'update() is not implemented yet!'
-    });
+    const {title, price, available, discount} = req.body
+    const {id} = req.params
+
+    Product.update(id, {title, price, available, discount})
+    .then(product => {
+      return res.json(product)
+    })
+    .catch(err => res.negotiate(err))
   },
 
 
@@ -56,9 +66,13 @@ module.exports = {
    * `ProductController.delete()`
    */
   delete: function (req, res) {
-    return res.json({
-      todo: 'delete() is not implemented yet!'
-    });
+    const {id} = req.params
+
+    Product.destroy(id)
+    .then(product => {
+      return res.json(product)
+    })
+    .catch(err => res.negotiate(err))
   }
 };
 
