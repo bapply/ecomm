@@ -33,9 +33,12 @@ module.exports = {
    * `ProductController.create()`
    */
   create: function (req, res) {
-    return res.json({
-      todo: 'create() is not implemented yet!'
-    });
+    const {title, price, available, discount} = req.body
+    Product.create({title, price, available, discount})
+    .then(product => {
+      return res.json(product)
+    })
+    .catch(err => res.negotiate(err))
   },
 
 

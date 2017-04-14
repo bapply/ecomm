@@ -8,7 +8,25 @@
 module.exports = {
 
   attributes: {
-
+    title: {
+      type: "string",
+      required: true
+    },
+    price: {
+      type: "float",
+      required: true,
+    },
+    available: {
+      type: "boolean",
+      defaultsTo: false,
+    },
+    discount: {
+      type: "int",
+      defaultsTo: false
+    },
+    media: {
+      collection: "media"
+    }
   }
 };
 
