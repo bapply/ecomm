@@ -31,7 +31,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-
+  '/': {view: 'homepage'},
   'post /register': 'UserController.register',
   'post /login': 'UserController.login',
   'post /product/create': 'ProductController.create'
