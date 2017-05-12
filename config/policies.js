@@ -50,5 +50,10 @@ module.exports.policies = {
 	// }
   UserController: {
     register: ['userExists']
+  },
+  ProductController: {
+    create: ['sessionAuth'],
+    update: ['sessionAuth'],
+    delete: ['sessionAuth']
   }
 };

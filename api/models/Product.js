@@ -17,8 +17,8 @@ module.exports = {
       required: true,
     },
     available: {
-      type: "boolean",
-      defaultsTo: false,
+      type: "integer",
+      defaultsTo: 0,
     },
     discount: {
       type: "int",

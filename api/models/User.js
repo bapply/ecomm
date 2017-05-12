@@ -8,6 +8,9 @@ module.exports = {
         password: {
             type: 'string',
             required: true
+        },
+        carts: {
+            collection: 'cart'
         }
     }
 }

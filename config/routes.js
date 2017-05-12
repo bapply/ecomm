@@ -31,14 +31,19 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-  '/': {view: 'homepage'},
+  '/': 'UserController#index',
+  'get /register': 'UserController.showRegister',
+  'get /login': 'UserController.showLogin',
   'post /register': 'UserController.register',
   'post /login': 'UserController.login',
   'post /product': 'ProductController.create',
   'get /product/:id': 'ProductController.show',
   'get /products': 'ProductController.index',
   'post /product/:id': 'ProductController.update',
-  'delete /product/:id': 'ProductController.delete'
+  'delete /product/:id': 'ProductController.delete',
+  'post /cart/addProduct': 'CartController.addProduct',
+  'post /cart/removeProduct': 'CartController.removeProduct',
+  'port /cart/pay': 'CartController.pay'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
